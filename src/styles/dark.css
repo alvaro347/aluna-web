@@ -1,0 +1,28 @@
+[data-theme="dark"] {
+  --color-primary: #8BD9B2;
+  --color-primary-hover: #A8E6C7;
+  --color-primary-dark: #6BC49A;
+  --color-primary-light: #1F4D3A;
+  --color-primary-bg: #162E24;
+
+  --color-accent: #FFB59D;
+  --color-accent-hover: #FFCAB8;
+
+  --color-background: #0E1512;
+  --color-surface: #141B18;
+  --color-surface-alt: #1A2420;
+  --color-surface-muted: #1F2D28;
+
+  --color-text-primary: #E8F0EC;
+  --color-text-secondary: #A8B8B0;
+  --color-text-muted: #6B7A72;
+  --color-text-on-primary: #08201A;
+  --color-text-on-accent: #1A1A2E;
+
+  --color-border: #2A3832;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+}
