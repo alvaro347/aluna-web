@@ -1,0 +1,19 @@
+.badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge--default {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+.badge--accent {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
