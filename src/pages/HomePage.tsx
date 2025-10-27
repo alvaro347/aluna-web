@@ -1,8 +1,19 @@
+import { Hero } from '@/sections/Hero/Hero'
+import { PetFeatures } from '@/sections/PetFeatures/PetFeatures'
+import { VetFeatures } from '@/sections/VetFeatures/VetFeatures'
+import { HowItWorks } from '@/sections/HowItWorks/HowItWorks'
+import { Testimonials } from '@/sections/Testimonials/Testimonials'
+import { DownloadCTA } from '@/sections/DownloadCTA/DownloadCTA'
+
 function HomePage() {
   return (
     <main>
-      <h1>Aluna</h1>
-      <p>Pet health, simplified.</p>
+      <Hero />
+      <PetFeatures />
+      <VetFeatures />
+      <HowItWorks />
+      <Testimonials />
+      <DownloadCTA />
     </main>
   )
 }
