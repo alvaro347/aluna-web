@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react'
 import { Logo } from '@/components/Logo/Logo'
 import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle'
 import { Button } from '@/components/Button/Button'
+import { useScrollSpy } from '@/hooks/useScrollSpy'
 import './NavBar.css'
 
 const NAV_LINKS = [
@@ -11,9 +12,12 @@ const NAV_LINKS = [
   { label: 'How It Works', href: '#how-it-works' },
 ]
 
+const SECTION_IDS = NAV_LINKS.map((l) => l.href.slice(1))
+
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const activeSection = useScrollSpy(SECTION_IDS)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +55,7 @@ export function NavBar() {
             <a
               key={link.href}
               href={link.href}
-              className="navbar__link"
+              className={`navbar__link ${activeSection === link.href.slice(1) ? 'navbar__link--active' : ''}`}
               onClick={(e) => handleLinkClick(e, link.href)}
             >
               {link.label}

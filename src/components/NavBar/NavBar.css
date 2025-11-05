@@ -49,6 +49,11 @@
   color: var(--color-primary);
 }
 
+.navbar__link--active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
 .navbar__links-actions {
   display: flex;
   align-items: center;
