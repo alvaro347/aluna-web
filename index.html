@@ -3,9 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aluna</title>
+    <meta name="description" content="Aluna — Pet health tracking for owners, practice management for vets. Track 11 health categories, book vet visits, and get reminders." />
+    <meta property="og:title" content="Aluna — Pet Health, Simplified" />
+    <meta property="og:description" content="Track your pet's health, book vet visits, and manage your practice — all in one platform." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/aluna-web/favicon.svg" />
+    <title>Aluna — Pet Health, Simplified</title>
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (!theme) {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
