@@ -67,6 +67,7 @@
 .footer__copyright {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 .footer__social {
