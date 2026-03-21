@@ -14,7 +14,7 @@
 .testimonials__stars {
   display: flex;
   gap: 2px;
-  color: #F59E0B;
+  color: var(--color-star);
 }
 
 .testimonials__text {
