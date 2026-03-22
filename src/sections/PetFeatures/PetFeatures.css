@@ -1,17 +1,518 @@
-.pet-features__grid {
+/* Layout: tabs left, phone mockup right */
+.pet-features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 
-@media (min-width: 640px) {
-  .pet-features__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Tab list */
+.pet-features__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pet-features__tab {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  font-family: var(--font-family);
+}
+
+.pet-features__tab:hover {
+  border-color: var(--color-primary-bg);
+  background-color: var(--color-surface-alt);
+}
+
+.pet-features__tab--active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.pet-features__tab--active:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-bg);
+}
+
+.pet-features__tab-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pet-features__tab-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.pet-features__tab-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+  display: none;
+}
+
+.pet-features__tab--active .pet-features__tab-desc {
+  display: block;
+  color: var(--color-text-secondary);
+}
+
+/* Phone mockup */
+.pet-features__preview {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pet-features__phone {
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-md);
+  overflow: hidden;
+}
+
+.pet-features__phone-notch {
+  width: 100px;
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+  margin: 0 auto var(--space-md);
+}
+
+.pet-features__phone-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.pet-features__phone-body {
+  min-height: 260px;
 }
 
 @media (min-width: 1024px) {
-  .pet-features__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .pet-features {
+    grid-template-columns: 1fr 360px;
+    gap: var(--space-2xl);
+    align-items: start;
   }
+
+  .pet-features__tab-desc {
+    display: block;
+  }
+
+  .pet-features__phone {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-xl));
+  }
+}
+
+/* ======================================= */
+/* Mockup: Health Tracking                 */
+/* ======================================= */
+.mockup-health__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-md);
+}
+
+.mockup-health__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mockup-health__value {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.mockup-health__value small {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+}
+
+.mockup-health__chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-xs);
+  height: 100px;
+  margin-bottom: var(--space-md);
+}
+
+.mockup-health__bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.mockup-health__bar-track {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.mockup-health__bar {
+  width: 100%;
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-bg) 100%);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  min-height: 4px;
+  transition: height var(--transition-base);
+}
+
+.mockup-health__day {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.mockup-health__stats {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.mockup-health__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: var(--space-sm);
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.mockup-health__stat-num {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.mockup-health__stat-label {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+/* ======================================= */
+/* Mockup: Medications                     */
+/* ======================================= */
+.mockup-meds__title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.mockup-meds__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mockup-meds__item:last-child {
+  border-bottom: none;
+}
+
+.mockup-meds__check {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mockup-meds__check--done {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.mockup-meds__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-meds__name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.mockup-meds__item--done .mockup-meds__name {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.mockup-meds__time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ======================================= */
+/* Mockup: Reminders                       */
+/* ======================================= */
+.mockup-reminders__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.mockup-reminders__emoji {
+  font-size: var(--font-size-xl);
+  flex-shrink: 0;
+}
+
+.mockup-reminders__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-reminders__text {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.mockup-reminders__time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ======================================= */
+/* Mockup: Vet Booking                     */
+/* ======================================= */
+.mockup-booking__map {
+  position: relative;
+  height: 120px;
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+}
+
+.mockup-booking__map-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 19px, var(--color-border) 19px, var(--color-border) 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, var(--color-border) 19px, var(--color-border) 20px);
+}
+
+.mockup-booking__pin {
+  position: absolute;
+  color: var(--color-primary);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.mockup-booking__card {
+  padding: var(--space-md);
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.mockup-booking__clinic {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.mockup-booking__dist {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.mockup-booking__slots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.mockup-booking__slot {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.mockup-booking__slot--selected {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border-color: var(--color-primary);
+}
+
+/* ======================================= */
+/* Mockup: Multi-Pet                       */
+/* ======================================= */
+.mockup-pets__tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.mockup-pets__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-alt);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  border: 1px solid transparent;
+}
+
+.mockup-pets__tab--active {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.mockup-pets__emoji {
+  font-size: var(--font-size-base);
+}
+
+.mockup-pets__tab-name {
+  font-size: var(--font-size-xs);
+}
+
+.mockup-pets__profile {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-lg);
+}
+
+.mockup-pets__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  flex-shrink: 0;
+}
+
+.mockup-pets__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.mockup-pets__name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.mockup-pets__breed {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.mockup-pets__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.mockup-pets__tag {
+  font-size: 10px;
+  padding: 2px var(--space-sm);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+}
+
+/* ======================================= */
+/* Mockup: Medical History                 */
+/* ======================================= */
+.mockup-history__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.mockup-history__item {
+  position: relative;
+  display: flex;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+.mockup-history__dot {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+}
+
+.mockup-history__line {
+  position: absolute;
+  left: 4px;
+  top: 14px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.mockup-history__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mockup-history__date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.mockup-history__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
 }
