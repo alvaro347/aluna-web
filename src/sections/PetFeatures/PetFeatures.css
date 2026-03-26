@@ -9,14 +9,14 @@
 .pet-features__tabs {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .pet-features__tab {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-md);
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
@@ -35,6 +35,8 @@
   border-color: var(--color-primary);
   background-color: var(--color-primary-bg);
   box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+  align-items: flex-start;
 }
 
 .pet-features__tab--active:hover {
@@ -71,17 +73,17 @@
 .pet-features__preview {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .pet-features__phone {
   width: 100%;
-  max-width: 320px;
+  max-width: 340px;
   background-color: var(--color-surface);
   border-radius: var(--radius-xl);
   border: 2px solid var(--color-border);
   box-shadow: var(--shadow-xl);
-  padding: var(--space-md);
+  padding: var(--space-lg);
   overflow: hidden;
 }
 
@@ -101,23 +103,22 @@
 }
 
 .pet-features__phone-body {
-  min-height: 260px;
+  min-height: 280px;
 }
 
 @media (min-width: 1024px) {
   .pet-features {
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 280px 1fr;
     gap: var(--space-2xl);
-    align-items: start;
+    align-items: center;
   }
 
-  .pet-features__tab-desc {
-    display: block;
+  .pet-features__preview {
+    order: 1;
   }
 
   .pet-features__phone {
-    position: sticky;
-    top: calc(var(--nav-height) + var(--space-xl));
+    max-width: 380px;
   }
 }
 
