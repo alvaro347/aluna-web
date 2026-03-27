@@ -1,7 +1,7 @@
 .how-it-works__steps {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2xl);
+  gap: var(--space-lg);
   position: relative;
 }
 
@@ -12,11 +12,23 @@
   text-align: center;
   gap: var(--space-md);
   position: relative;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.how-it-works__step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .how-it-works__step-number {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,14 +57,15 @@
     gap: var(--space-xl);
   }
 
-  /* Connecting line between steps */
+  /* Connecting line between cards */
   .how-it-works__step:not(:last-child)::after {
     content: '';
     position: absolute;
-    top: 56px;
-    right: -12%;
-    width: 24%;
+    top: 50%;
+    right: calc(var(--space-xl) * -1);
+    width: var(--space-xl);
     height: 2px;
+    transform: translateY(-50%);
     background: repeating-linear-gradient(
       90deg,
       var(--color-primary-bg) 0,
