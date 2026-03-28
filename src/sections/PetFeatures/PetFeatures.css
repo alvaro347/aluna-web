@@ -108,7 +108,7 @@
 
 @media (min-width: 1024px) {
   .pet-features {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 380px 1fr;
     gap: var(--space-2xl);
     align-items: center;
   }
