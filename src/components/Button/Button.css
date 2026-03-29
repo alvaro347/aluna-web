@@ -30,14 +30,14 @@
 
 .btn--primary {
   background-color: var(--color-primary);
-  color: var(--color-text-on-primary);
+  color: #FFFFFF;
   border-color: var(--color-primary);
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
-  color: var(--color-text-on-primary);
+  color: #FFFFFF;
 }
 
 .btn--secondary {

@@ -64,7 +64,7 @@ export function NavBar() {
           <div className="navbar__links-actions">
             <ThemeToggle />
             <Button variant="primary" size="sm" href="#download">
-              Get the App
+              Coming Soon
             </Button>
           </div>
         </div>
