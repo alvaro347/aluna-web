@@ -70,6 +70,30 @@
   }
 }
 
+[data-theme="dark"] .download-cta {
+  background: linear-gradient(
+    135deg,
+    #1A3D2E 0%,
+    #112118 100%
+  );
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .download-cta__btn-ios {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .download-cta__btn-ios:hover {
+  background-color: rgba(139, 217, 178, 0.1);
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-hover);
+}
+
+[data-theme="dark"] .download-cta__vet-link a {
+  color: var(--color-primary);
+}
+
 @media (min-width: 1024px) {
   .download-cta {
     padding: var(--space-4xl) 0;

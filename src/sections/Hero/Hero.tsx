@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   HeartPulse,
   Pill,
   Bell,
@@ -36,8 +35,7 @@ export function Hero() {
             </p>
             <div className="hero__actions">
               <Button variant="secondary" size="lg" href="#download">
-                Download the App
-                <ArrowRight size={18} />
+                Coming Soon
               </Button>
               <Button variant="outline" size="lg" href="#vets">
                 For Vet Practices

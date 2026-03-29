@@ -1,4 +1,3 @@
-import { ArrowRight } from 'lucide-react'
 import { Container } from '@/components/Container/Container'
 import { Button } from '@/components/Button/Button'
 import './DownloadCTA.css'
@@ -16,12 +15,8 @@ export function DownloadCTA() {
             charge of their pet's wellbeing.
           </p>
           <div className="download-cta__actions">
-            <Button variant="secondary" size="lg" href="#">
-              Download for Android
-              <ArrowRight size={18} />
-            </Button>
             <Button variant="outline" size="lg" href="#" className="download-cta__btn-ios">
-              Download for iOS
+              Coming Soon
             </Button>
           </div>
           <p className="download-cta__vet-link">
