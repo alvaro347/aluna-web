@@ -37,6 +37,7 @@
 .btn--primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
+  color: var(--color-text-on-primary);
 }
 
 .btn--secondary {
@@ -73,6 +74,10 @@
 
 .btn--ghost:hover {
   background-color: var(--color-surface-alt);
+}
+
+a.btn:hover {
+  color: inherit;
 }
 
 .btn:focus-visible {
