@@ -279,7 +279,7 @@
   font-size: var(--font-size-xs);
   padding: 2px var(--space-sm);
   background-color: var(--color-accent);
-  color: #FFFFFF;
+  color: var(--color-white);
   border-radius: var(--radius-full);
   font-weight: var(--font-weight-medium);
 }
