@@ -123,7 +123,7 @@
 
 @media (min-width: 1024px) {
   .vet-features {
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 480px 1fr;
     gap: var(--space-2xl);
     align-items: center;
   }
