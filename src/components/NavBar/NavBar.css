@@ -18,7 +18,6 @@
 .navbar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--space-lg);
@@ -28,10 +27,11 @@
 .navbar__logo-link {
   text-decoration: none;
   color: inherit;
+  margin-right: var(--space-xl);
 }
 
-/* Desktop links */
-.navbar__links {
+/* Desktop nav links (left side, next to logo) */
+.navbar__nav {
   display: none;
   align-items: center;
   gap: var(--space-xl);
@@ -54,17 +54,36 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.navbar__links-actions {
-  display: flex;
+/* Desktop right side (toggle + github + CTA) */
+.navbar__right {
+  display: none;
   align-items: center;
   gap: var(--space-md);
+  margin-left: auto;
 }
 
-/* Mobile actions (theme toggle + hamburger) */
-.navbar__actions {
+.navbar__github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.navbar__github-link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface-alt);
+}
+
+/* Mobile hamburger button */
+.navbar__hamburger {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  margin-left: auto;
 }
 
 .navbar__menu-btn {
@@ -80,45 +99,59 @@
   cursor: pointer;
 }
 
-/* Desktop layout */
-@media (min-width: 1024px) {
-  .navbar__links {
-    display: flex;
-  }
-
-  .navbar__actions {
-    display: none;
-  }
+/* Mobile dropdown menu */
+.navbar__mobile {
+  display: none;
 }
 
-/* Mobile menu open */
-@media (max-width: 1023px) {
-  .navbar__links--open {
+.navbar__mobile--open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-lg);
+  gap: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__mobile-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.navbar__mobile-actions .navbar__github-link {
+  justify-content: flex-start;
+  width: auto;
+  gap: var(--space-sm);
+}
+
+.navbar__mobile-actions .btn {
+  width: 100%;
+}
+
+/* Desktop layout */
+@media (min-width: 1024px) {
+  .navbar__nav {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    background-color: var(--color-surface);
-    box-shadow: var(--shadow-lg);
-    padding: var(--space-lg);
-    gap: var(--space-md);
-    border-bottom: 1px solid var(--color-border);
   }
 
-  .navbar__links--open .navbar__links-actions {
-    flex-direction: column;
-    width: 100%;
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--color-border);
+  .navbar__right {
+    display: flex;
   }
 
-  .navbar__links--open .navbar__links-actions .btn {
-    width: 100%;
-  }
-
-  .navbar__links--open .navbar__links-actions .theme-toggle {
+  .navbar__hamburger {
     display: none;
+  }
+
+  .navbar__mobile {
+    display: none !important;
   }
 }

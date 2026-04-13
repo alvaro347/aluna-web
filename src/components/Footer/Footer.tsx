@@ -67,7 +67,7 @@ export function Footer() {
           </p>
           <div className="footer__social">
             <a
-              href="https://github.com"
+              href="https://github.com/alvaro347/Aluna"
               className="footer__social-link"
               aria-label="GitHub"
               target="_blank"

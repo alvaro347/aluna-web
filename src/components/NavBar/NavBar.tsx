@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Github } from 'lucide-react'
 import { Logo } from '@/components/Logo/Logo'
 import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle'
 import { Button } from '@/components/Button/Button'
@@ -50,7 +50,7 @@ export function NavBar() {
           <Logo />
         </a>
 
-        <div className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
+        <div className="navbar__nav">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -61,16 +61,25 @@ export function NavBar() {
               {link.label}
             </a>
           ))}
-          <div className="navbar__links-actions">
-            <ThemeToggle />
-            <Button variant="primary" size="sm" href="#download">
-              Coming Soon
-            </Button>
-          </div>
         </div>
 
-        <div className="navbar__actions">
+        <div className="navbar__right">
           <ThemeToggle />
+          <a
+            href="https://github.com/alvaro347/Aluna"
+            className="navbar__github-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github size={20} />
+          </a>
+          <Button variant="primary" size="sm" href="#download">
+            Coming Soon
+          </Button>
+        </div>
+
+        <div className="navbar__hamburger">
           <button
             className="navbar__menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -78,6 +87,34 @@ export function NavBar() {
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+        </div>
+
+        <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`navbar__link ${activeSection === link.href.slice(1) ? 'navbar__link--active' : ''}`}
+              onClick={(e) => handleLinkClick(e, link.href)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="navbar__mobile-actions">
+            <ThemeToggle />
+            <a
+              href="https://github.com/alvaro347/Aluna"
+              className="navbar__github-link"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={20} />
+            </a>
+            <Button variant="primary" size="sm" href="#download">
+              Coming Soon
+            </Button>
+          </div>
         </div>
       </div>
     </nav>

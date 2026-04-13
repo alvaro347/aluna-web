@@ -4,14 +4,17 @@ import './ThemeToggle.css'
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useThemeContext()
+  const isDark = theme === 'dark'
 
   return (
     <button
-      className="theme-toggle"
+      className={`theme-toggle ${isDark ? 'theme-toggle--dark' : ''}`}
       onClick={toggleTheme}
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
-      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+      <Sun size={14} className="theme-toggle__icon" />
+      <Moon size={14} className="theme-toggle__icon" />
+      <span className="theme-toggle__knob" />
     </button>
   )
 }
