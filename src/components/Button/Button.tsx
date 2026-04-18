@@ -19,8 +19,13 @@ export function Button({
   const classes = `btn btn--${variant} btn--${size} ${className}`.trim()
 
   if (href) {
+    const isExternal = /^https?:\/\//.test(href)
     return (
-      <a href={href} className={classes}>
+      <a
+        href={href}
+        className={classes}
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {children}
       </a>
     )

@@ -24,7 +24,7 @@ function AppointmentsMockup() {
   const hours = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00']
   const slots = [
     { hour: 0, col: 1, label: 'Luna — Checkup', color: 'var(--color-primary)' },
-    { hour: 1, col: 2, label: 'Milo — Vaccine', color: '#9B59B6' },
+    { hour: 1, col: 2, label: 'Milo — Vaccine', color: '#8D7CC0' },
     { hour: 2, col: 1, label: 'Buddy — Dental', color: '#E58A6F' },
     { hour: 3, col: 3, label: 'Lunch', color: 'var(--color-text-muted)' },
     { hour: 4, col: 1, label: 'Coco — Follow-up', color: '#3498DB' },

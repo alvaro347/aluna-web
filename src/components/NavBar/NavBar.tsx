@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, Github } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Menu, X, Github, Download } from 'lucide-react'
 import { Logo } from '@/components/Logo/Logo'
 import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle'
 import { Button } from '@/components/Button/Button'
@@ -18,6 +18,8 @@ export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const activeSection = useScrollSpy(SECTION_IDS)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const hamburgerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,22 @@ export function NavBar() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node
+      if (
+        mobileMenuRef.current?.contains(target) ||
+        hamburgerRef.current?.contains(target)
+      ) {
+        return
+      }
+      setMenuOpen(false)
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [menuOpen])
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -37,7 +55,7 @@ export function NavBar() {
   }
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--menu-open' : ''}`}>
       <div className="navbar__inner">
         <a
           href="#"
@@ -47,7 +65,7 @@ export function NavBar() {
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
-          <Logo />
+          <Logo size="sm" />
         </a>
 
         <div className="navbar__nav">
@@ -66,7 +84,7 @@ export function NavBar() {
         <div className="navbar__right">
           <ThemeToggle />
           <a
-            href="https://github.com/alvaro347/Aluna"
+            href="https://github.com/alvaro347/aluna-releases"
             className="navbar__github-link"
             aria-label="GitHub"
             target="_blank"
@@ -74,12 +92,17 @@ export function NavBar() {
           >
             <Github size={20} />
           </a>
-          <Button variant="primary" size="sm" href="#download">
-            Coming Soon
+          <Button
+            variant="primary"
+            size="sm"
+            href="https://github.com/alvaro347/aluna-releases/releases/latest"
+          >
+            <Download size={14} />
+            Download
           </Button>
         </div>
 
-        <div className="navbar__hamburger">
+        <div className="navbar__hamburger" ref={hamburgerRef}>
           <button
             className="navbar__menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -89,7 +112,10 @@ export function NavBar() {
           </button>
         </div>
 
-        <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
+        <div
+          ref={mobileMenuRef}
+          className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}
+        >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -103,7 +129,7 @@ export function NavBar() {
           <div className="navbar__mobile-actions">
             <ThemeToggle />
             <a
-              href="https://github.com/alvaro347/Aluna"
+              href="https://github.com/alvaro347/aluna-releases"
               className="navbar__github-link"
               aria-label="GitHub"
               target="_blank"
@@ -111,8 +137,13 @@ export function NavBar() {
             >
               <Github size={20} />
             </a>
-            <Button variant="primary" size="sm" href="#download">
-              Coming Soon
+            <Button
+              variant="primary"
+              size="sm"
+              href="https://github.com/alvaro347/aluna-releases/releases/latest"
+            >
+              <Download size={14} />
+              Download
             </Button>
           </div>
         </div>

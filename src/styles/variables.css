@@ -1,27 +1,28 @@
 :root {
-  /* Primary palette */
-  --color-primary: #2E7D5B;
-  --color-primary-hover: #216345;
-  --color-primary-dark: #194E37;
-  --color-primary-light: #A8E6C7;
-  --color-primary-bg: #D9F2E2;
+  /* Primary palette — brand lavender, hue ≈ 255° */
+  --color-primary: #8D7CC0;
+  --color-primary-hover: #7862BC;
+  --color-primary-dark: #553E98;
+  --color-primary-light: #C8C0E3;
+  --color-primary-bg: #EAE6F4;
 
-  /* Accent */
-  --color-accent: #E58A6F;
-  --color-accent-hover: #D47A5F;
+  /* Accent — salmon-peach pairs warm against the cool purple */
+  --color-accent: #5ba0a5;
+  --color-accent-hover: #5ba0a5;
+  --color-accent-bg: #FDE8DE;
 
   /* Backgrounds */
-  --color-background: #F7FAF8;
+  --color-background: #F9F8FC;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #F1FAF5;
-  --color-surface-muted: #D9F2E2;
+  --color-surface-alt: #F5F4FB;
+  --color-surface-muted: #EAE6F4;
 
   /* Text */
   --color-text-primary: #1A1A2E;
   --color-text-secondary: #4A5568;
   --color-text-muted: #718096;
   --color-text-on-primary: #FFFFFF;
-  --color-text-on-accent: #FFFFFF;
+  --color-text-on-accent: #3A1810;
 
   /* Semantic */
   --color-white: #FFFFFF;

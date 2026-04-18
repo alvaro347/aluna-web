@@ -15,6 +15,10 @@
   box-shadow: var(--shadow-sm);
 }
 
+.navbar--menu-open {
+  background-color: var(--color-surface);
+}
+
 .navbar__inner {
   display: flex;
   align-items: center;
@@ -38,10 +42,12 @@
 }
 
 .navbar__link {
+  position: relative;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   text-decoration: none;
+  padding-bottom: 4px;
   transition: color var(--transition-fast);
 }
 
@@ -52,6 +58,17 @@
 .navbar__link--active {
   color: var(--color-primary);
   font-weight: var(--font-weight-semibold);
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-full);
 }
 
 /* Desktop right side (toggle + github + CTA) */

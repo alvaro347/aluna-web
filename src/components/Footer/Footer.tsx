@@ -27,7 +27,7 @@ export function Footer() {
       <div className="footer__inner">
         <div className="footer__grid">
           <div className="footer__brand">
-            <Logo />
+            <Logo size="md" />
             <p className="footer__tagline">
               Pet health tracking for owners, practice management for vets.
             </p>
@@ -67,7 +67,7 @@ export function Footer() {
           </p>
           <div className="footer__social">
             <a
-              href="https://github.com/alvaro347/Aluna"
+              href="https://github.com/alvaro347/aluna-releases"
               className="footer__social-link"
               aria-label="GitHub"
               target="_blank"

@@ -53,7 +53,7 @@
 }
 
 .footer__link:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .footer__bottom {
@@ -81,7 +81,7 @@
 }
 
 .footer__social-link:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 @media (min-width: 640px) {

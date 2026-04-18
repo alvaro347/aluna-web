@@ -6,6 +6,7 @@ import {
   Calendar,
   Moon,
   PawPrint,
+  Download,
 } from 'lucide-react'
 import { Container } from '@/components/Container/Container'
 import { Button } from '@/components/Button/Button'
@@ -17,7 +18,7 @@ const MOCK_CARDS = [
   { icon: Activity, label: 'Activity', color: '#3498DB' },
   { icon: Pill, label: 'Meds', color: '#2E7D5B' },
   { icon: Bell, label: 'Reminders', color: '#F39C12' },
-  { icon: Calendar, label: 'Booking', color: '#9B59B6' },
+  { icon: Calendar, label: 'Booking', color: '#8D7CC0' },
   { icon: Moon, label: 'Sleep', color: '#1ABC9C' },
 ]
 
@@ -33,7 +34,7 @@ export function Hero() {
               Your pet's health, <span className="hero__highlight">simplified</span>
             </h1>
             <div className="hero__badge">
-              <Badge>Pet Health Tracking App</Badge>
+              <Badge variant="accent">Pet Health Tracking App</Badge>
             </div>
             <p className="hero__subtitle">
               Track 11 health categories, book vet visits, get reminders — all
@@ -41,8 +42,13 @@ export function Hero() {
               them.
             </p>
             <div className="hero__actions">
-              <Button variant="secondary" size="lg" href="#download">
-                Coming Soon
+              <Button
+                variant="primary"
+                size="lg"
+                href="https://github.com/alvaro347/aluna-releases/releases/latest"
+              >
+                <Download size={18} />
+                Download for macOS
               </Button>
               <Button variant="outline" size="lg" href="#vets">
                 For Vet Practices
