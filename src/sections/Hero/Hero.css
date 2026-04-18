@@ -213,6 +213,367 @@
   color: var(--color-text-secondary);
 }
 
+/* =========================================================
+   Hero graphic — Luna medallion with floating health stats
+   (replaces the phone mockup, which is kept in JSX for backup)
+   ========================================================= */
+
+.hero__graphic {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  isolation: isolate;
+}
+
+/* Ambient gradient blobs (soft colored glows behind the medallion) */
+.hero__blob {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__blob--primary {
+  width: 70%;
+  height: 70%;
+  top: 5%;
+  left: 8%;
+  background: var(--color-primary);
+  animation: hero-blob-drift 12s ease-in-out infinite;
+}
+
+.hero__blob--accent {
+  width: 50%;
+  height: 50%;
+  bottom: 6%;
+  right: 4%;
+  background: var(--color-accent);
+  animation: hero-blob-drift 14s ease-in-out -6s infinite reverse;
+}
+
+[data-theme='dark'] .hero__blob {
+  opacity: 0.35;
+}
+
+/* Dashed orbital rings */
+.hero__ring {
+  position: absolute;
+  border-radius: var(--radius-full);
+  border: 1.5px dashed var(--color-primary);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__ring--outer {
+  inset: 6%;
+  animation: hero-spin 60s linear infinite;
+}
+
+.hero__ring--inner {
+  inset: 20%;
+  border-style: dotted;
+  border-color: var(--color-accent);
+  opacity: 0.45;
+  animation: hero-spin 45s linear infinite reverse;
+}
+
+/* Central medallion */
+.hero__medallion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 58%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-full);
+  background: radial-gradient(
+    circle at 35% 30%,
+    var(--color-surface) 0%,
+    var(--color-surface-alt) 70%,
+    var(--color-primary-bg) 100%
+  );
+  border: 3px solid var(--color-surface);
+  box-shadow: var(--shadow-xl),
+    0 0 0 6px color-mix(in srgb, var(--color-primary) 12%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Crescent moon backdrop inside the medallion (Aluna = luna) */
+.hero__medallion-moon {
+  position: absolute;
+  top: 12%;
+  right: 10%;
+  width: 34%;
+  height: 34%;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero__medallion-moon-shape {
+  fill: var(--color-primary);
+}
+
+[data-theme='dark'] .hero__medallion-moon-shape {
+  fill: var(--color-primary-light);
+  opacity: 0.8;
+}
+
+/* Stylized pet (Luna) */
+.hero__pet {
+  position: relative;
+  width: 82%;
+  height: 82%;
+  z-index: 1;
+  filter: drop-shadow(0 6px 12px color-mix(in srgb, var(--color-primary) 22%, transparent));
+}
+
+.hero__pet-fill {
+  fill: var(--color-primary);
+}
+
+.hero__pet-accent {
+  fill: var(--color-accent);
+}
+
+.hero__pet-blush {
+  fill: color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+.hero__pet-eye {
+  fill: var(--color-text-primary);
+}
+
+[data-theme='dark'] .hero__pet-eye {
+  fill: #0e0a1c;
+}
+
+.hero__pet-shine {
+  fill: var(--color-white);
+}
+
+.hero__pet-nose {
+  fill: var(--color-primary-dark);
+}
+
+.hero__pet-stroke {
+  fill: none;
+  stroke: var(--color-primary-dark);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.hero__pet-whisker {
+  fill: none;
+  stroke: color-mix(in srgb, var(--color-primary-dark) 70%, transparent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* ECG pulse sweeping across the bottom of the medallion */
+.hero__medallion-pulse {
+  position: absolute;
+  bottom: 14%;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero__medallion-pulse-stroke {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: hero-pulse-draw 3.2s ease-in-out infinite;
+}
+
+/* Floating stat chips */
+.hero__chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 3;
+  backdrop-filter: blur(8px);
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+.hero__chip--heart {
+  top: 4%;
+  right: -2%;
+  animation-delay: 0s;
+}
+
+.hero__chip--activity {
+  top: 44%;
+  left: -6%;
+  animation-delay: 1.8s;
+}
+
+.hero__chip--sleep {
+  bottom: 4%;
+  right: 4%;
+  animation-delay: 3.2s;
+}
+
+.hero__chip-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero__chip-icon--heart {
+  background: color-mix(in srgb, var(--color-accent) 25%, var(--color-surface));
+  color: var(--color-accent);
+}
+
+.hero__chip-icon--activity {
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+.hero__chip-icon--sleep {
+  background: color-mix(in srgb, var(--color-primary) 18%, var(--color-surface));
+  color: var(--color-primary-dark);
+}
+
+[data-theme='dark'] .hero__chip-icon--sleep {
+  color: var(--color-primary);
+}
+
+.hero__chip-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.hero__chip-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.hero__chip-value em {
+  font-style: normal;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  font-size: 0.7em;
+  margin-left: 2px;
+}
+
+.hero__chip-label {
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-top: 2px;
+}
+
+/* Sparkle accents */
+.hero__sparkle {
+  position: absolute;
+  color: var(--color-primary);
+  opacity: 0.7;
+  z-index: 2;
+  animation: hero-twinkle 3.5s ease-in-out infinite;
+}
+
+.hero__sparkle--1 {
+  top: 16%;
+  left: 18%;
+}
+
+.hero__sparkle--2 {
+  bottom: 24%;
+  left: 12%;
+  color: var(--color-accent);
+  animation-delay: 1.2s;
+}
+
+.hero__sparkle--3 {
+  top: 32%;
+  right: 14%;
+  color: var(--color-accent);
+  animation-delay: 2.1s;
+}
+
+/* Animations */
+@keyframes hero-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes hero-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes hero-pulse-draw {
+  0% {
+    stroke-dashoffset: 220;
+  }
+  60% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -220;
+  }
+}
+
+@keyframes hero-blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-10px, 12px) scale(1.05);
+  }
+}
+
 /* Responsive */
 @media (min-width: 640px) {
   .hero__actions {
@@ -238,5 +599,9 @@
 
   .hero__phone {
     width: 380px;
+  }
+
+  .hero__graphic {
+    max-width: 480px;
   }
 }
