@@ -14,11 +14,11 @@
   --color-accent-bg: #3D261C;
   --color-text-on-accent: #2A0B02;
 
-  /* Backgrounds — neutral dark gray, low chroma */
-  --color-background: #131315;
-  --color-surface: #1B1B1D;
-  --color-surface-alt: #222224;
-  --color-surface-muted: #2A2A2C;
+  /* Backgrounds — neutral dark gray with clear elevation steps */
+  --color-background: #0D0D0F;
+  --color-surface: #1F1F22;
+  --color-surface-alt: #2A2A2D;
+  --color-surface-muted: #35353A;
 
   /* Text */
   --color-text-primary: #ECE8F2;
@@ -27,12 +27,12 @@
   --color-text-on-primary: #1F0F28;
 
   /* Borders */
-  --color-border: #2E2E31;
-  --color-border-strong: #3F3F43;
+  --color-border: #3A3A3E;
+  --color-border-strong: #52525A;
 
   /* Gradients — slightly adjusted for dark */
   --gradient-brand: linear-gradient(135deg, #A593DB 0%, #FF9B7A 100%);
-  --gradient-surface: linear-gradient(180deg, #131315 0%, #1B1B1D 100%);
+  --gradient-surface: linear-gradient(180deg, #0D0D0F 0%, #1F1F22 100%);
 
   /* Shadows — deeper for dark canvas */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
