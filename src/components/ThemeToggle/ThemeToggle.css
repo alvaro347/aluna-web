@@ -3,18 +3,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  width: 56px;
-  height: 28px;
-  padding: 0 7px;
+  width: 60px;
+  height: 32px;
+  padding: 0 8px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   background-color: var(--color-surface-alt);
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .theme-toggle:hover {
-  background-color: var(--color-border);
+  background-color: var(--color-primary-bg);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle:active {
+  transform: scale(0.96);
 }
 
 .theme-toggle__icon {
@@ -22,33 +31,40 @@
   z-index: 1;
   flex-shrink: 0;
   color: var(--color-text-muted);
-  transition: color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-base) var(--ease-spring);
 }
 
-/* Light mode: sun icon highlighted */
+/* Light mode: sun icon highlighted (warm coral for personality) */
 .theme-toggle .theme-toggle__icon:first-child {
-  color: var(--color-primary);
+  color: var(--color-accent-hover);
+  transform: rotate(0deg);
 }
 
-/* Dark mode: moon icon highlighted, sun dimmed */
+[data-theme='dark'] .theme-toggle .theme-toggle__icon:first-child,
 .theme-toggle--dark .theme-toggle__icon:first-child {
   color: var(--color-text-muted);
 }
 
+/* Dark mode: moon icon highlighted (brand lavender) */
 .theme-toggle--dark .theme-toggle__icon:nth-child(2) {
   color: var(--color-primary);
+  transform: rotate(-15deg);
 }
 
 .theme-toggle__knob {
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: var(--radius-full);
   background-color: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast);
+  box-shadow:
+    var(--shadow-md),
+    inset 0 0 0 1px var(--color-border);
+  transition: transform var(--transition-base) var(--ease-spring);
 }
 
 .theme-toggle--dark .theme-toggle__knob {

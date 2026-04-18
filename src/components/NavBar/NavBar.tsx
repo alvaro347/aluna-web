@@ -65,7 +65,7 @@ export function NavBar() {
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
-          <Logo size="sm" />
+          <Logo size="md" />
         </a>
 
         <div className="navbar__nav">

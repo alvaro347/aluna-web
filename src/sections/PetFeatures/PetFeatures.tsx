@@ -9,6 +9,12 @@ import {
   Check,
   MapPin,
   FileText,
+  Dog,
+  Cat,
+  Rabbit,
+  Bone,
+  Stethoscope,
+  Footprints,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Section } from '@/components/Section/Section'
@@ -96,17 +102,19 @@ function MedsMockup() {
 }
 
 function RemindersMockup() {
-  const reminders = [
-    { text: 'Morning walk with Luna', time: '7:30 AM', icon: '🐕' },
-    { text: 'Feeding time', time: '12:00 PM', icon: '🍖' },
-    { text: 'Apoquel evening dose', time: '8:00 PM', icon: '💊' },
-    { text: 'Vet checkup', time: 'Tomorrow', icon: '🏥' },
+  const reminders: { text: string; time: string; Icon: LucideIcon }[] = [
+    { text: 'Morning walk with Luna', time: '7:30 AM', Icon: Footprints },
+    { text: 'Feeding time', time: '12:00 PM', Icon: Bone },
+    { text: 'Apoquel evening dose', time: '8:00 PM', Icon: Pill },
+    { text: 'Vet checkup', time: 'Tomorrow', Icon: Stethoscope },
   ]
   return (
     <div className="mockup-reminders">
       {reminders.map((r, i) => (
         <div key={i} className="mockup-reminders__item">
-          <span className="mockup-reminders__emoji">{r.icon}</span>
+          <span className="mockup-reminders__icon">
+            <r.Icon size={18} strokeWidth={2} />
+          </span>
           <div className="mockup-reminders__info">
             <span className="mockup-reminders__text">{r.text}</span>
             <span className="mockup-reminders__time">{r.time}</span>
@@ -151,23 +159,27 @@ function BookingMockup() {
 }
 
 function MultiPetMockup() {
-  const pets = [
-    { name: 'Luna', breed: 'Golden Retriever', emoji: '🐕', active: true },
-    { name: 'Milo', breed: 'British Shorthair', emoji: '🐈', active: false },
-    { name: 'Coco', breed: 'Mini Lop', emoji: '🐇', active: false },
+  const pets: { name: string; breed: string; Icon: LucideIcon; active: boolean }[] = [
+    { name: 'Luna', breed: 'Golden Retriever', Icon: Dog, active: true },
+    { name: 'Milo', breed: 'British Shorthair', Icon: Cat, active: false },
+    { name: 'Coco', breed: 'Mini Lop', Icon: Rabbit, active: false },
   ]
   return (
     <div className="mockup-pets">
       <div className="mockup-pets__tabs">
         {pets.map((p) => (
           <div key={p.name} className={`mockup-pets__tab ${p.active ? 'mockup-pets__tab--active' : ''}`}>
-            <span className="mockup-pets__emoji">{p.emoji}</span>
+            <span className="mockup-pets__icon">
+              <p.Icon size={14} strokeWidth={2} />
+            </span>
             <span className="mockup-pets__tab-name">{p.name}</span>
           </div>
         ))}
       </div>
       <div className="mockup-pets__profile">
-        <div className="mockup-pets__avatar">🐕</div>
+        <div className="mockup-pets__avatar">
+          <Dog size={26} strokeWidth={1.8} />
+        </div>
         <div className="mockup-pets__details">
           <span className="mockup-pets__name">Luna</span>
           <span className="mockup-pets__breed">Golden Retriever, 3 yrs</span>

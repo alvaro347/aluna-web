@@ -27,7 +27,16 @@ export function Footer() {
       <div className="footer__inner">
         <div className="footer__grid">
           <div className="footer__brand">
-            <Logo size="md" />
+            <a
+              href="#"
+              className="footer__logo-link"
+              onClick={(e) => {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
+            >
+              <Logo size="lg" />
+            </a>
             <p className="footer__tagline">
               Pet health tracking for owners, practice management for vets.
             </p>

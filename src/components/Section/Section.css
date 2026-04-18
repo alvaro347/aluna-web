@@ -1,9 +1,10 @@
 .section {
   padding: var(--space-3xl) 0;
+  position: relative;
 }
 
 .section--default {
-  background-color: var(--color-background);
+  background-color: transparent;
 }
 
 .section--alt {
@@ -11,23 +12,65 @@
 }
 
 .section--dark {
-  background-color: var(--color-primary-dark);
+  background-image: var(--gradient-brand);
   color: var(--color-text-on-primary);
+  overflow: hidden;
+}
+
+.section--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.08),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 255, 255, 0.05),
+      transparent 50%
+    );
+  pointer-events: none;
 }
 
 .section__header {
   text-align: center;
   margin-bottom: var(--space-2xl);
+  position: relative;
+}
+
+.section__eyebrow {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-hover);
+  margin-bottom: var(--space-md);
+}
+
+[data-theme='dark'] .section__eyebrow {
+  color: var(--color-accent);
+}
+
+.section--dark .section__eyebrow {
+  color: var(--color-accent-soft);
 }
 
 .section__title {
+  font-family: var(--font-family-display);
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-md);
   line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  font-variation-settings: 'SOFT' 100, 'opsz' 72;
 }
 
 .section__subtitle {
+  font-family: var(--font-family);
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   max-width: 640px;
@@ -36,7 +79,7 @@
 }
 
 .section--dark .section__subtitle {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (min-width: 1024px) {

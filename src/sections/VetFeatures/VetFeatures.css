@@ -19,23 +19,24 @@
   gap: var(--space-md);
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   background-color: var(--color-surface);
   cursor: pointer;
   text-align: left;
   transition: all var(--transition-fast);
   font-family: var(--font-family);
+  box-shadow: var(--shadow-sm);
 }
 
 .vet-features__tab:hover {
-  border-color: var(--color-primary-bg);
-  background-color: var(--color-surface-alt);
+  border-color: var(--color-primary-light);
+  background-color: var(--color-primary-bg);
 }
 
 .vet-features__tab--active {
   border-color: var(--color-primary);
   background-color: var(--color-primary-bg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   padding: var(--space-md);
   align-items: flex-start;
 }
@@ -91,7 +92,7 @@
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-sm) var(--space-md);
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-primary-bg);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -195,7 +196,7 @@
 .mockup-appt__cell {
   flex: 1;
   min-height: 28px;
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-primary-bg);
   border-radius: 3px;
 }
 
@@ -257,7 +258,7 @@
   color: var(--color-text-secondary);
   line-height: var(--line-height-normal);
   padding: var(--space-xs) var(--space-sm);
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-primary-bg);
   border-radius: var(--radius-sm);
   flex: 1;
 }
@@ -398,7 +399,7 @@
 }
 
 .mockup-inventory__badge--critical {
-  color: #E74C3C;
+  color: var(--color-danger);
 }
 
 /* ======================================= */
@@ -431,7 +432,7 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-primary);
   padding: var(--space-xs) var(--space-sm);
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-primary-bg);
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
 }
@@ -457,7 +458,7 @@
 .mockup-reports__kpi {
   flex: 1;
   padding: var(--space-sm) var(--space-md);
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-primary-bg);
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;

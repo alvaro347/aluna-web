@@ -1,11 +1,13 @@
 .download-cta {
   padding: var(--space-3xl) 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-primary-dark) 100%
-  );
+  background-color: var(--color-primary-dark);
   color: var(--color-text-on-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-cta > * {
+  position: relative;
 }
 
 .download-cta__content {
@@ -35,10 +37,13 @@
 }
 
 .download-cta__title {
+  font-family: var(--font-family-display);
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
   line-height: var(--line-height-tight);
+  font-variation-settings: 'SOFT' 100, 'opsz' 72;
 }
 
 .download-cta__subtitle {
@@ -139,13 +144,15 @@
   color: var(--color-text-on-primary);
 }
 
-[data-theme="dark"] .download-cta {
-  background: linear-gradient(
-    135deg,
-    #291F47 0%,
-    #160F29 100%
-  );
+[data-theme='dark'] .download-cta {
+  background-color: var(--color-primary-bg);
   color: var(--color-text-primary);
+}
+
+[data-theme='dark'] .download-cta__pre-alpha {
+  background-color: var(--color-primary-light);
+  color: var(--color-text-primary);
+  border-color: var(--color-primary-soft);
 }
 
 [data-theme="dark"] .download-cta__platform-card {

@@ -6,17 +6,26 @@
   height: var(--nav-height);
   z-index: 100;
   background-color: transparent;
-  transition: background-color var(--transition-base),
-    box-shadow var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    backdrop-filter var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+  border-bottom: 1px solid transparent;
 }
 
 .navbar--scrolled {
-  background-color: var(--color-surface);
+  background-color: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  backdrop-filter: saturate(160%) blur(16px);
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
   box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--color-border);
 }
 
 .navbar--menu-open {
   background-color: var(--color-surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .navbar__inner {
@@ -32,46 +41,52 @@
   text-decoration: none;
   color: inherit;
   margin-right: var(--space-xl);
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
 }
 
-/* Desktop nav links (left side, next to logo) */
+/* Desktop nav links */
 .navbar__nav {
   display: none;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-xs);
 }
 
 .navbar__link {
   position: relative;
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   text-decoration: none;
-  padding-bottom: 4px;
-  transition: color var(--transition-fast);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-full);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .navbar__link:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-bg);
 }
 
 .navbar__link--active {
-  color: var(--color-primary);
+  color: var(--color-text-primary);
   font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
-.navbar__link--active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
+[data-theme='dark'] .navbar__link:hover {
+  color: var(--color-primary);
 }
 
-/* Desktop right side (toggle + github + CTA) */
+/* Desktop right side */
 .navbar__right {
   display: none;
   align-items: center;
@@ -83,20 +98,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
   color: var(--color-text-secondary);
-  transition: color var(--transition-fast),
-    background-color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .navbar__github-link:hover {
   color: var(--color-primary);
   background-color: var(--color-surface-alt);
+  transform: translateY(-1px);
 }
 
-/* Mobile hamburger button */
+/* Mobile hamburger */
 .navbar__hamburger {
   display: flex;
   align-items: center;
@@ -107,16 +125,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border: none;
-  border-radius: var(--radius-md);
-  background-color: transparent;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-alt);
   color: var(--color-text-primary);
   cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
-/* Mobile dropdown menu */
+.navbar__menu-btn:hover {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary-dark);
+}
+
+.navbar__menu-btn:active {
+  transform: scale(0.94);
+}
+
+/* Mobile dropdown */
 .navbar__mobile {
   display: none;
 }
@@ -126,13 +156,20 @@
   flex-direction: column;
   position: absolute;
   top: var(--nav-height);
-  left: 0;
-  right: 0;
+  left: var(--space-md);
+  right: var(--space-md);
   background-color: var(--color-surface);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
   padding: var(--space-lg);
-  gap: var(--space-md);
-  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  margin-top: var(--space-sm);
+}
+
+.navbar__mobile--open .navbar__link {
+  font-size: var(--font-size-lg);
+  padding: 0.75rem var(--space-md);
 }
 
 .navbar__mobile-actions {
@@ -141,6 +178,7 @@
   align-items: stretch;
   gap: var(--space-md);
   padding-top: var(--space-md);
+  margin-top: var(--space-sm);
   border-top: 1px solid var(--color-border);
 }
 
@@ -148,6 +186,7 @@
   justify-content: flex-start;
   width: auto;
   gap: var(--space-sm);
+  padding: 0 var(--space-md);
 }
 
 .navbar__mobile-actions .btn {

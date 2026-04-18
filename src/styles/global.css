@@ -24,6 +24,53 @@ body {
     color var(--transition-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Atmospheric background — whisper of lavender + peach (very subtle) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(
+      circle at 15% 10%,
+      var(--color-primary-soft),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      var(--color-accent-soft),
+      transparent 40%
+    );
+  opacity: 0.06;
+}
+
+[data-theme='dark'] body::before {
+  opacity: 0.08;
+}
+
+/* Display font for headings */
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  /* Fraunces variable axis — soft optical */
+  font-variation-settings: 'SOFT' 80, 'opsz' 96;
+}
+
+h4,
+h5,
+h6 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
 }
 
 a {
@@ -54,10 +101,11 @@ ol {
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 ::selection {
-  background-color: var(--color-primary-bg);
+  background-color: var(--color-accent-bg);
   color: var(--color-text-primary);
 }
 

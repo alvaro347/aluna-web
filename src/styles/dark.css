@@ -1,30 +1,43 @@
 [data-theme="dark"] {
-  --color-primary: #9A81E4;
-  --color-primary-hover: #B19EEB;
-  --color-primary-dark: #7A5CD6;
+  /* Primary — brighter lavender for dark backgrounds (hue preserved) */
+  --color-primary: #A593DB;
+  --color-primary-hover: #B8A9E4;
+  --color-primary-dark: #7461B8;
+  --color-primary-soft: #4E3F7B;
   --color-primary-light: #392D5D;
-  --color-primary-bg: #201A32;
+  --color-primary-bg: #251E3A;
 
-  --color-accent: #7ea8b8;
-  --color-accent-hover: #7ea8b8;
-  --color-accent-bg: #3D2A25;
+  /* Accent — boosted coral for legibility on dark surfaces */
+  --color-accent: #FF9B7A;
+  --color-accent-hover: #FFB299;
+  --color-accent-soft: #8A513C;
+  --color-accent-bg: #3D261C;
+  --color-text-on-accent: #2A0B02;
 
-  --color-background: #111214;
-  --color-surface: #18191C;
-  --color-surface-alt: #1E2023;
-  --color-surface-muted: #25272B;
+  /* Backgrounds — neutral dark gray, low chroma */
+  --color-background: #131315;
+  --color-surface: #1B1B1D;
+  --color-surface-alt: #222224;
+  --color-surface-muted: #2A2A2C;
 
-  --color-text-primary: #EAEBED;
-  --color-text-secondary: #A9ABB0;
-  --color-text-muted: #6C6F75;
+  /* Text */
+  --color-text-primary: #ECE8F2;
+  --color-text-secondary: #B0A9BC;
+  --color-text-muted: #7A7490;
   --color-text-on-primary: #1F0F28;
-  --color-text-on-accent: #2E1510;
-  --color-text-on-accent: #FFFFFF;
 
-  --color-border: #2E3035;
+  /* Borders */
+  --color-border: #2E2E31;
+  --color-border-strong: #3F3F43;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+  /* Gradients — slightly adjusted for dark */
+  --gradient-brand: linear-gradient(135deg, #A593DB 0%, #FF9B7A 100%);
+  --gradient-surface: linear-gradient(180deg, #131315 0%, #1B1B1D 100%);
+
+  /* Shadows — deeper for dark canvas */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 28px 60px rgba(0, 0, 0, 0.55);
+  --shadow-accent: 0 10px 30px rgba(255, 155, 122, 0.28);
 }

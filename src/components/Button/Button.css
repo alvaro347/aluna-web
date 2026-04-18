@@ -3,57 +3,78 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  border: 2px solid transparent;
-  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
   font-family: var(--font-family);
   font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
   text-decoration: none;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  user-select: none;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
   white-space: nowrap;
+  position: relative;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 90ms;
 }
 
 .btn--sm {
-  padding: var(--space-xs) var(--space-md);
+  min-height: 36px;
+  padding: 0 var(--space-md);
   font-size: var(--font-size-sm);
 }
 
 .btn--md {
-  padding: var(--space-sm) var(--space-lg);
+  min-height: 44px;
+  padding: 0 var(--space-lg);
   font-size: var(--font-size-base);
 }
 
 .btn--lg {
-  padding: var(--space-md) var(--space-xl);
+  min-height: 52px;
+  padding: 0 var(--space-xl);
   font-size: var(--font-size-lg);
 }
 
+/* ————— Primary ————— */
 .btn--primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-text-on-primary);
   border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
-  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
+/* ————— Secondary (peach) ————— */
 .btn--secondary {
   background-color: var(--color-accent);
   color: var(--color-text-on-accent);
   border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn--secondary:hover {
   background-color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
-  color: var(--color-text-on-accent);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
 }
 
+/* ————— Outline ————— */
 .btn--outline {
   background-color: transparent;
   color: var(--color-primary);
@@ -64,8 +85,10 @@
   background-color: var(--color-primary-bg);
   color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
+  transform: translateY(-2px);
 }
 
+/* ————— Ghost ————— */
 .btn--ghost {
   background-color: transparent;
   color: var(--color-text-primary);
@@ -74,9 +97,34 @@
 
 .btn--ghost:hover {
   background-color: var(--color-surface-alt);
+  color: var(--color-primary);
 }
 
+/* ————— Gradient (hero CTA) ————— */
+.btn--gradient {
+  background-image: var(--gradient-brand);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  color: var(--color-white);
+  border-color: transparent;
+  box-shadow: var(--shadow-accent);
+}
+
+.btn--gradient:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow:
+    var(--shadow-lg),
+    var(--shadow-accent);
+}
+
+/* ————— Focus ————— */
 .btn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.btn--secondary:focus-visible,
+.btn--gradient:focus-visible {
+  outline-color: var(--color-accent);
 }

@@ -14,34 +14,46 @@
   position: relative;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl) var(--space-lg);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-2xl) var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .how-it-works__step:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
 }
 
 .how-it-works__step-number {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-full);
   background-color: var(--color-primary);
   color: var(--color-text-on-primary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  box-shadow: var(--shadow-md);
+  font-variation-settings: 'SOFT' 100, 'opsz' 24;
 }
 
 .how-it-works__step-title {
+  font-family: var(--font-family-display);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  font-variation-settings: 'SOFT' 100, 'opsz' 24;
 }
 
 .how-it-works__step-desc {
@@ -57,7 +69,7 @@
     gap: var(--space-xl);
   }
 
-  /* Connecting line between cards */
+  /* Dashed coral connector between cards */
   .how-it-works__step:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -68,8 +80,8 @@
     transform: translateY(-50%);
     background: repeating-linear-gradient(
       90deg,
-      var(--color-primary-bg) 0,
-      var(--color-primary-bg) 6px,
+      var(--color-accent-soft) 0,
+      var(--color-accent-soft) 6px,
       transparent 6px,
       transparent 12px
     );
